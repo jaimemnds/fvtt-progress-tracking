@@ -1,0 +1,43 @@
+{
+  "id": "fvtt-progress-tracking",
+  "name": "fvtt-progress-tracking",
+  "title": "Universal Progress Tracking",
+  "description": "Module for FoundryVTT that adds a new dashboard to keep track of downtime activities, training, spell scribing, stress, faction reputation, quest progress, and anything else you can think of that can be represented as a progress bar or a series of checkboxes.",
+  "authors": [
+    {
+      "name": "Jyme",
+      "discord": "jaimemnds"
+    }
+  ],
+  "bugs": "https://github.com/jaimemnds/fvtt-progress-tracking/issues",
+  "download": "https://github.com/jaimemnds/fvtt-progress-tracking/releases/download/v0.0.1/module.zip",
+  "license": "https://github.com/jaimemnds/fvtt-progress-tracking/blob/main/LICENSE",
+  "manifest": "https://github.com/jaimemnds/fvtt-progress-tracking/releases/latest/download/module.json",
+  "readme": "https://github.com/jaimemnds/fvtt-progress-tracking/blob/main/README.md",
+  "url": "https://github.com/jaimemnds/fvtt-progress-tracking",
+  "version": "0.0.1",
+  "esmodules": ["./dist/scripts.js"],
+  "styles": ["./dist/styles.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "dist/lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "pt",
+      "name": "Português",
+      "path": "dist/lang/pt.json",
+      "flags": {}
+    }
+  ],
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "relationships": {}
+}

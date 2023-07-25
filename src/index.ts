@@ -1,13 +1,31 @@
+import { DashboardWindow } from "./components/dashboard-window";
 import { appendLauncherButton } from "./components/launcher-button";
+import { MODULE_KEY } from "./shared/constants";
 
-console.warn(
-  "Hello World! This code runs immediately when the file is loaded."
-);
+class FvttProgressTrackingModule {
+  private get data() {
+    return (window as any)[MODULE_KEY];
+  }
+
+  private set data(value: any) {
+    (window as any)[MODULE_KEY] = value;
+  }
+
+  get dashboardWindow() {
+    return this.data.dashboardWindow;
+  }
+
+  constructor() {
+    this.data = {
+      dashboardWindow: new DashboardWindow(),
+    };
+  }
+}
+
+export let progressTrackingModule: FvttProgressTrackingModule;
 
 Hooks.on("init", function () {
-  console.error(
-    "This code runs once the Foundry VTT software begins its initialization workflow."
-  );
+  progressTrackingModule = new FvttProgressTrackingModule();
 });
 
 Hooks.on("ready", function () {

@@ -1,3 +1,4 @@
+import { progressTrackingModule } from "../..";
 import { LAUNCHER_CONTROL_BUTTON_NAME } from "../../shared/constants";
 
 /**
@@ -16,7 +17,7 @@ export function appendLauncherButton(controls: SceneControl[]) {
     icon: "fas fa-square-check",
     button: true,
     onClick: () => {
-      console.error("BUTTON CLICKED");
+      progressTrackingModule.dashboardWindow.render(true);
     },
   });
 }

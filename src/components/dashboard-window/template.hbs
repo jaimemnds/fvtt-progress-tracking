@@ -1,0 +1,38 @@
+
+<div class="{{displayMode}}-container">
+  {{#if entities}}
+    {{#each entities}}
+      <div class="entity-container">
+        <p class="entity-name">{{name}}</p>
+          <div class="tracks-container">
+            {{#each tracks}}
+              <div class="track">
+                <p class="track-name">{{trackTemplate.name}}</p>
+                <div class="track-checkboxes">
+                  {{#times maxLevel}}
+                    {{!-- Check if track type is checkbox and render it. --}}
+                    {{#if (eq ../trackTemplate.type "checkbox")}}
+                      <label class="checkbox" for="use_icon">
+                        <input type="checkbox" id="use_icon" name="{{../../name}}-{{../trackTemplate.name}}-{{../currentLevel}}" {{#if (lt this ../currentLevel)}}checked{{/if}} data-dtype="Boolean" />
+                      </label>
+                      {{!-- currentLevel: number; --}}
+                    {{/if}} {{!-- When it's time to implement other types, it should be added else-if above here --}}
+                  {{/times}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <small class="version">v</small>
+    <i class="fas fa-eye"></i>
+    <a
+      href="#"
+      data-setting="{{undefined}}"
+      title="{{localize 'UniversalProgressTracking.Welcome'}}"
+    >
+      <i class="fas fa-edit"></i>
+    </a>
+  {{/if}}
+</div>

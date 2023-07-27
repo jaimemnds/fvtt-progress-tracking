@@ -1,0 +1,109 @@
+#fvtt-progress-tracking-dashboard-window {
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1em 2em;
+
+    .entity-container {
+      margin: 0.5em;
+      max-width: 50%;
+
+      .entity-name {
+        font-family: "Modesto Condensed", "Palatino Linotype", serif;
+        font-size: 2em;
+        white-space: pre;
+        margin: 0 0 0.5em;
+      }
+
+      .tracks-container {
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+
+        .track {
+          .track-name {
+            margin: 0;
+          }
+
+          .track-checkboxes {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      input[type="checkbox"] {
+        --form-control-color: currentColor;
+        --form-control-disabled: #959495;
+        --checkbox-bg: rgba(255, 255, 255, 0.5);
+        --checkbox-size: 2em;
+        --half-checkbox-size: calc(var(--checkbox-size) / 2);
+        --border-width: calc(var(--checkbox-size) * 0.1);
+        --minus-border-width: calc(var(--border-width) * -1);
+        --slash-polygon: polygon(90% 0, 100% 10%, 10% 100%, 0 90%);
+        --x-polygon: polygon(
+          0 90%,
+          40% 50%,
+          0 10%,
+          10% 0,
+          50% 40%,
+          90% 0,
+          100% 10%,
+          60% 50%,
+          100% 90%,
+          90% 100%,
+          50% 60%,
+          10% 100%
+        );
+
+        appearance: none;
+        background-color: var(--checkbox-bg);
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        border: var(--border-width) solid currentColor;
+        overflow: hidden;
+
+        &::before {
+          display: inline-block;
+          content: "";
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
+          background: var(--form-control-color);
+          clip-path: var(--x-polygon);
+          transform: translate(
+            var(--minus-border-width),
+            var(--minus-border-width)
+          );
+          transform-origin: bottom left;
+          transition: 120ms transform ease-in-out;
+          opacity: 0;
+        }
+
+        &:checked::before {
+          opacity: 1;
+        }
+
+        &:focus {
+          border-color: var(--form-control-color);
+        }
+
+        &:checked {
+          -webkit-filter: none;
+        }
+
+        &:checked:focus {
+          border-color: var(--form-control-color);
+        }
+
+        &:disabled {
+          --form-control-color: var(--form-control-disabled);
+          color: var(--form-control-disabled);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

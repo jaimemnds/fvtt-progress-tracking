@@ -1,6 +1,7 @@
 import { DashboardWindow } from "./components/dashboard-window";
 import { appendLauncherButton } from "./components/launcher-button";
 import { MODULE_KEY } from "./shared/constants";
+import "./shared/handlebars-helpers";
 
 class FvttProgressTrackingModule {
   private get data() {

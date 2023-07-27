@@ -14,6 +14,6 @@ export const MODULE_PATHS = {
     return `${this.COMPONENTS}/dashboard-window`;
   },
   get DASHBOARD_WINDOW_TEMPLATE() {
-    return `${this.DASHBOARD_WINDOW}/dashboard-window.html`;
+    return `${this.DASHBOARD_WINDOW}/template.hbs`;
   },
 };
